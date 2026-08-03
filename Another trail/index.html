@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ishant Sharma — Data Analyst</title>
+<meta name="description" content="Portfolio and resume of Ishant Sharma, Data Analyst" />
+<meta name="theme-color" content="#090D0C" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #090D0C;
+    --bg-raised: #0F1615;
+    --ink: #E7EFEA;
+    --ink-soft: #86A199;
+    --accent: #35C98C;
+    --accent-2: #3FA6E8;
+    --accent-soft: #16241F;
+    --rule: #1B2624;
+    --max: 760px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(63,166,232,0.10), transparent 40%),
+      radial-gradient(circle at 88% 0%, rgba(53,201,140,0.09), transparent 45%),
+      var(--bg);
+    background-attachment: fixed;
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  body::before{
+    content:"";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(230,240,236,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(230,240,236,0.025) 1px, transparent 1px);
+    background-size: 42px 42px;
+    z-index: 0;
+  }
+
+  .wrap{ position: relative; z-index: 1; }
+
+  a { color: inherit; }
+
+  .wrap{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    padding: 88px 0 56px;
+    position: relative;
+  }
+
+  header::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2) 45%, transparent 75%);
+    opacity: 0.55;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    margin: 0 0 18px;
+  }
+
+  .eyebrow::before{
+    content: "> ";
+    color: var(--accent);
+  }
+
+  .eyebrow::after{
+    content: "";
+    display: inline-block;
+    width: 7px;
+    height: 13px;
+    margin-left: 4px;
+    background: var(--accent);
+    vertical-align: -2px;
+    animation: blink 1.1s steps(2, start) infinite;
+  }
+
+  @keyframes blink{ to { opacity: 0; } }
+
+  @media (prefers-reduced-motion: reduce){
+    .eyebrow::after{ animation: none; }
+  }
+
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(40px, 7vw, 58px);
+    line-height: 1.05;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+    background: linear-gradient(100deg, var(--ink) 40%, var(--accent) 78%, var(--accent-2) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .role{
+    font-size: 18px;
+    color: var(--ink-soft);
+    margin: 0 0 28px;
+    max-width: 52ch;
+  }
+
+  .contact-row{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  .contact-row a{
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1px;
+    transition: border-color .15s ease, color .15s ease;
+  }
+  .contact-row a:hover{
+    border-color: var(--accent-2);
+    color: var(--accent-2);
+  }
+
+  /* ---------- Section scaffolding ---------- */
+  section{
+    padding: 56px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  section:last-of-type{ border-bottom: none; }
+
+  .section-head{
+    display:flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+
+  h2{
+    font-family:'Fraunces', serif;
+    font-weight: 500;
+    font-size: 26px;
+    margin: 0;
+  }
+
+  .section-note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+
+  p{ margin: 0 0 12px; color: var(--ink-soft); }
+
+  /* ---------- Timeline (experience) ---------- */
+  .timeline{
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .entry{
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 20px;
+    position: relative;
+  }
+
+  .entry-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    padding-top: 3px;
+  }
+
+  .entry-body{
+    position: relative;
+    padding-left: 22px;
+    border-left: 1px solid var(--rule);
+  }
+
+  .entry-body::before{
+    content:"";
+    position:absolute;
+    left: -4.5px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft), 0 0 10px 1px rgba(53,201,140,0.55);
+  }
+
+  .entry:nth-child(2) .entry-body::before{
+    background: var(--accent-2);
+    box-shadow: 0 0 0 3px var(--accent-soft), 0 0 10px 1px rgba(63,166,232,0.55);
+  }
+
+  .entry-title{
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0 0 4px;
+    color: var(--ink);
+  }
+
+  .entry-org{
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .entry:nth-child(2) .entry-org{ color: var(--accent-2); }
+
+  .entry-body ul{
+    margin: 10px 0 0;
+    padding-left: 18px;
+    color: var(--ink-soft);
+  }
+  .entry-body li{ margin-bottom: 6px; }
+
+  /* ---------- Projects ---------- */
+  .projects{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .card{
+    background: var(--bg-raised);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 22px;
+    transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  }
+  .card:hover{
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px rgba(53,201,140,0.15), 0 14px 30px -18px rgba(63,166,232,0.35);
+  }
+
+  .card:nth-child(even):hover{
+    border-color: var(--accent-2);
+    box-shadow: 0 0 0 1px rgba(63,166,232,0.15), 0 14px 30px -18px rgba(53,201,140,0.35);
+  }
+
+  .card-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--accent);
+    margin: 0 0 10px;
+  }
+
+  .card:nth-child(even) .card-tag{ color: var(--accent-2); }
+
+  .card h3{
+    font-family:'Fraunces', serif;
+    font-weight: 500;
+    font-size: 19px;
+    margin: 0 0 8px;
+    color: var(--ink);
+  }
+
+  .card p{ font-size: 14.5px; margin: 0; }
+
+  /* ---------- Skills ---------- */
+  .skill-groups{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .skill-group h4{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--ink-soft);
+    margin: 0 0 12px;
+    font-weight: 500;
+  }
+
+  .skill-group ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .skill-group li{
+    padding: 7px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 14.5px;
+  }
+  .skill-group li:last-child{ border-bottom: none; }
+
+  /* ---------- Education ---------- */
+  .edu-entry{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .edu-entry:last-child{ border-bottom: none; }
+
+  .edu-school{ font-weight: 600; }
+  .edu-detail{ color: var(--ink-soft); font-size: 14.5px; }
+  .edu-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding: 40px 0 80px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  footer a{
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+  footer a:hover{ color: var(--accent-2); border-color: var(--accent-2); }
+
+  /* ---------- Responsive ---------- */
+  .skill-groups--two{ grid-template-columns: 1fr 1fr; }
+
+  @media (max-width: 640px){
+    header{ padding: 56px 0 40px; }
+    section{ padding: 40px 0; }
+    .entry{ grid-template-columns: 1fr; gap: 8px; }
+    .entry-date{ padding-top: 0; }
+    .projects{ grid-template-columns: 1fr; }
+    .skill-groups{ grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 420px){
+    .skill-groups{ grid-template-columns: 1fr; }
+    .skill-groups--two{ grid-template-columns: 1fr; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    .card{ transition: none; }
+  }
+
+  /* Focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="photo_section">
+    <img src="Assets/images.jpg" alt="" height="150px">
+    <img src="Assets/mountain.jpg" alt="" height="150px">
+    <img src="Assets/Stone Face.jpg" alt="" height="150px">
+    
+  </div>
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">Aspiring Data Analyst</p>
+    <h1>Ishant Sharma</h1>
+    <p class="role">BCA graduate skilled in Excel, Python, SQL, and data visualization. I organize, clean, and interpret data to support decision-making, and I'm looking for a Data Analyst role where I can put that to work.</p>
+    <div class="contact-row">
+      <a href="mailto:ishusharma3114@gmail.com">ishusharma3114@gmail.com</a>
+      <a href="tel:+919992211002">+91 99922 11002</a>
+      <a href="#" target="_blank" rel="noopener">linkedin.com/in/Ishant_Sharma</a>
+      <span>Rohtak, Haryana, India</span>
+    </div>
+  </header>
+
+  <section id="experience">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <span class="section-note">2023 — present</span>
+    </div>
+    <div class="timeline">
+
+      <div class="entry">
+        <div class="entry-date">2023 — Now</div>
+        <div class="entry-body">
+          <p class="entry-title">Computer Instructor / Computer Teacher · <span class="entry-org">The Education Point Association, Rohtak</span></p>
+          <ul>
+            <li>Taught fundamental computer concepts to 200+ students, including Microsoft Office, internet applications, and basic programming.</li>
+            <li>Delivered practical training in Excel, Word, PowerPoint, and general computer applications.</li>
+            <li>Guided students through data organization, spreadsheet management, and problem-solving techniques.</li>
+            <li>Prepared study materials and practical exercises, and led classroom sessions for digital literacy.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-head">
+      <h2>Selected Work</h2>
+      <span class="section-note">Built in Microsoft Excel</span>
+    </div>
+    <div class="projects">
+
+      <div class="card">
+        <p class="card-tag">Excel Automation</p>
+        <h3>Attendance Checker System</h3>
+        <p>An attendance management system built with Excel formulas and functions, automating attendance calculations and percentage tracking to cut down manual effort.</p>
+      </div>
+
+      <div class="card">
+        <p class="card-tag">Data Management</p>
+        <h3>Student Fees Record Manager</h3>
+        <p>A fee management system for tracking student payments, with automated calculations and reporting features for fast, organized retrieval.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head">
+      <h2>Skills</h2>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h4>Programming</h4>
+        <ul>
+          <li>Python</li>
+          <li>Java</li>
+          <li>C++</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Data &amp; Analysis</h4>
+        <ul>
+          <li>Microsoft Excel</li>
+          <li>SQL</li>
+          <li>Power BI</li>
+          <li>Data Cleaning</li>
+          <li>Data Visualization</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Strengths</h4>
+        <ul>
+          <li>Analytical Thinking</li>
+          <li>Problem Solving</li>
+          <li>Attention to Detail</li>
+          <li>Communication &amp; Presentation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="section-head">
+      <h2>Certifications &amp; Achievements</h2>
+    </div>
+    <div class="skill-groups skill-groups--two">
+      <div class="skill-group">
+        <h4>Certifications</h4>
+        <ul>
+          <li>Data Analytics Certification</li>
+          <li>Microsoft Excel Certification</li>
+          <li>Python Programming Certification</li>
+          <li>ADCA — Advanced Diploma in Computer Applications</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Achievements</h4>
+        <ul>
+          <li>Completed BCA with First Division</li>
+          <li>Built practical projects in data management &amp; analysis, now used as teaching examples</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-head">
+      <h2>Education</h2>
+    </div>
+    <div class="edu-entry">
+      <div>
+        <div class="edu-school">Bachelor of Computer Applications (BCA)</div>
+        <div class="edu-detail">Sh. Lal Nath Hindu College, Rohtak — Maharshi Dayanand University (MDU), Rohtak · First Division</div>
+      </div>
+      <div class="edu-date">Completed 2026</div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Ishant Sharma</span>
+    <a href="mailto:ishusharma3114@gmail.com">Get in touch →</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
